@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block title %}Concert{% endblock %}
+{% block content %}
+{% for item in data %}
+
+    <form method="POST" action="">
+        <div class="card-body">
+        <h5 class="card-title"> Le {{ item.dateConcert }}</h5>
+        <input type="hidden" name="id" value='{{ item.id }}'>
+        <p class="card-text">{{ item.title }} <input value=Supprimer type="submit"></p>
+    
+    </form>
+    <br />
+{% endfor %}
+{% endblock %}

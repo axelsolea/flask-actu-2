@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block title %}Actualité {% if name != "all" %}{{ name }}{% endif %}{% endblock %}
+{% block content %}
+<div class="container text-center">
+    <div class="row">
+      <div class="row">
+        {% for item in data %}
+        {% if item.type == name or name == "all" %}
+            <form method="POST" action="supprimeractu">
+                <div class="card-body">
+                <h5 class="card-title"> Le {{ item.dateActu }}</h5>
+                <input type="hidden" name="id" value='{{ item.id }}'>
+                <p class="card-text">{{ item.title }} <input value=Supprimer type="submit"></p>
+                
+            </form>
+            <br />
+        {% endif %}
+        {% endfor %}
+      </div>
+  
+{% endblock %}

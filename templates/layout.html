@@ -16,6 +16,17 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  {% if session['username'] == null %}
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/login">Se connecter</a>
+                  </li>
+                  {% endif %}
+                  {% if session['username'] != null %}
+                  <li class="nav-item">
+                    <p>Bonjour, {{ session['username'] }}</p>
+                    <a class="nav-link active" aria-current="page" href="/logout">Se déconnecter</a>
+                  </li>
+                  {% endif %}
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                   </li>
@@ -33,6 +44,18 @@
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/actualites/rock">Actualités Rock</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/ajouteractu">Ajouter actu</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/supprimeractu">Supprimer actu</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/ajouterconcert">Ajouter concert</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/supprimerconcert">Supprimer concert</a>
                   </li>
                 </ul>
               </div>
